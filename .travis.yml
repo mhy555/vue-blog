@@ -17,3 +17,9 @@ install:
 
 script:
   - npm run build
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  on:
+    branch: master
