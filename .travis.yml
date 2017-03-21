@@ -1,6 +1,5 @@
 branches:
   - develop
-  - master
 
 language: node_js
 
