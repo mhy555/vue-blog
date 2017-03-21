@@ -18,7 +18,7 @@ webpackConfig = {
       new HtmlWebpackPlugin({
         filename: 'index.html',
         //hash: true,
-        template: 'src/downloadPage.html',
+        template: 'src/index.html',
         minify: {
           removeComments: true,
           collapseWhitespace: true,
@@ -28,7 +28,7 @@ webpackConfig = {
         }
       }),
       new OpenBrowserPlugin({
-        url: 'http://10.9.28.70:8080/'
+        url: 'http://127.0.0.1:8080/'
       }),
       new ExtractTextPlugin('/[name].css'),
       new webpack.DefinePlugin({
@@ -82,7 +82,7 @@ webpackConfig = {
     },
     devServer: {
       port: 8080,
-      host: '10.9.28.70',
+      host: '127.0.0.1',
       contentBase: './dist'
     }
 }
