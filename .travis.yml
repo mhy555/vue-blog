@@ -15,22 +15,5 @@ cache:
 install:
   - npm install
 
-before_script:
-  - git config --global user.name "Erin.ma"
-  - git config --global user.email "mhy6@vip.qq.com"
-  - git clone --branch gh-pages https://github.com/mhy555/vue-blog.git dist
-
 script:
   - npm run build
-
-after_success:
-  - cd dist
-  - echo "nobody" > CNAME
-  - cp index.html 404.html
-  - git add --all .
-  - git commit --message "Automatically update from travis-ci"
-  - git push --quiet "https://${GH_TOKEN}@${GH_REF}" gh-pages:gh-pages
-
-env:
-  global:
-    - GH_REF: https://github.com/mhy555/vue-blog.git

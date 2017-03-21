@@ -1,0 +1,51 @@
+{
+  "name": "vue-blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clear": "rm -rf ./dist/*",
+    "dev": "export NODE_ENV=development && webpack-dev-server --progress --colors --inline",
+    "builddev": "npm run clear && export NODE_ENV=development && webpack",
+    "build": "npm run clear && export NODE_ENV=production && webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhy555/vue-blog.git"
+  },
+  "author": "Erin.Ma",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhy555/vue-blog/issues"
+  },
+  "homepage": "https://github.com/mhy555/vue-blog#readme",
+  "dependencies": {
+    "vue": "^2.2.4",
+    "vue-loader": "^11.1.4",
+    "vue-router": "^2.3.0",
+    "vue-template-compiler": "^2.2.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.9",
+    "babel-plugin-transform-runtime": "^6.15.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "bundle-loader": "^0.5.4",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.10.0",
+    "html-webpack-plugin": "^2.24.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
+    "open-browser-webpack-plugin": "0.0.3",
+    "postcss-loader": "^1.2.2",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  }
+}
