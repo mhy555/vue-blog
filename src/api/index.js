@@ -1,6 +1,6 @@
 import axios from 'axios'
 import 'es6-promise/auto'
-
+import {getStrDate, getTitle} from '../utils/string-filter.js'
 import conf from '../config'
 
 /**
@@ -54,7 +54,8 @@ export default {
         .then(arr => {
           // Data cleaning
           const list = arr.map(({name, sha, size}) => ({
-            name,
+            title: getTitle(name),
+            date: getStrDate(name),
             sha,
             size
           }))
