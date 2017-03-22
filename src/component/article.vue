@@ -34,7 +34,7 @@ export default {
 
 <style lang="less">
 .article {
-  padding: 0 30px 0 40px;
+  padding: 0 15% 30px 16%;
   font-family: monospace;
   color: #282828;
   font-size: 16px;
