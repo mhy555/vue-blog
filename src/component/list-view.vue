@@ -36,7 +36,7 @@ export default {
 <style lang="less">
 .list-view {
   .item-container {
-    padding: 30px 0 30px 200px;
+    padding: 30px 0 30px 35%;
     font-size: 18px;
     font-family: monospace;
     color: #282828;

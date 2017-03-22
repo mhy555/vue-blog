@@ -31,7 +31,7 @@
   .header {
     font-size: 40px;
     font-family: fantasy;
-    padding: 30px 50px;
+    padding: 40px 25%;
   }
 }
 </style>
