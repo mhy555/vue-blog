@@ -1,5 +1,5 @@
 <template>
-  <div id='app'>
+  <div class="app-root">
     <header class="header">
       <router-link to="/">{{ title }}</router-link>
       <div style="clear: both"></div>
@@ -21,7 +21,7 @@
 
     },
     mounted() {
-      
+
     }
   }
 </script>
