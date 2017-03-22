@@ -4,6 +4,9 @@ import './common.less'
 import VueRouter from 'vue-router'
 import ListView from './component/list-view.vue'
 import Article from './component/article.vue'
+import Timeago from 'timeago.js'
+
+const timeago = new Timeago(null, 'zh_CN')
 
 Vue.use(VueRouter)
 
@@ -18,6 +21,6 @@ new Vue(
   Vue.util.extend({ router }, App)
 ).$mount('#app')
 
-Vue.filter('removeSuffix', (value) => {
-  return value.replace(/\.\w+$/, '')
+Vue.filter('timeago', (str) => {
+  return timeago.format(new Date(str))
 })

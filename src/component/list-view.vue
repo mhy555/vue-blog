@@ -7,6 +7,9 @@
       <div class="date">
         {{ item.date }}
       </div>
+      <div class="time-ago">
+        {{ item.date | timeago }}
+      </div>
     </div>
   </div>
 </template>
@@ -39,7 +42,7 @@ export default {
 <style lang="less">
 .list-view {
   .item-container {
-    padding: 30px 0 30px 35%;
+    padding: 30px 0 30px 40%;
     font-family: monospace;
     color: #282828;
     .item-title {
@@ -47,8 +50,15 @@ export default {
       padding: 10px 0;
     }
     .date {
-      padding: 10px 0 10px 20px;
+      display: inline-block;
       font-size: 14px;
+      line-height: 18px;
+      margin-left: 20px;
+      color: #666;
+    }
+    .time-ago {
+      margin-top: 10px;
+      color: #999;
     }
   }
 }
