@@ -34,6 +34,15 @@ export default {
 
 <style lang="less">
 .article {
+  padding: 0 15% 30px 16%;
+  font-family: monospace;
+  color: #282828;
+  font-size: 16px;
+  h2 {
+    font-size: 19px;
+    padding: 10px 0;
+    font-weight: bold;
+  }
   pre {
     background: #f7f7f7 !important;
     padding: 16px;

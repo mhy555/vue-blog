@@ -27,5 +27,11 @@
 </script>
 
 <style lang="less">
-
+.app-root {
+  .header {
+    font-size: 40px;
+    font-family: fantasy;
+    padding: 40px 10% 20px;
+  }
+}
 </style>
