@@ -2,8 +2,11 @@
   <div class="list-view">
     <div class="item-container" v-for="item in items">
       <router-link :to="'/article/' + item.sha" :key="item.sha" class="item-title">
-        {{item.name | removeSuffix}}
+        {{ item.title }}
       </router-link>
+      <div class="date">
+        {{ item.date }}
+      </div>
     </div>
   </div>
 </template>
@@ -37,9 +40,16 @@ export default {
 .list-view {
   .item-container {
     padding: 30px 0 30px 35%;
-    font-size: 18px;
     font-family: monospace;
     color: #282828;
+    .item-title {
+      font-size: 18px;
+      padding: 10px 0;
+    }
+    .date {
+      padding: 10px 0 10px 20px;
+      font-size: 14px;
+    }
   }
 }
 </style>
