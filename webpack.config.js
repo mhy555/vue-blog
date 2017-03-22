@@ -48,6 +48,10 @@ webpackConfig = {
             loader: "style!css!postcss"
         },
         {
+          test: /\.vue$/,
+          loader: 'vue'
+        },
+        {
           test: /\.less$/,
           loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader!less-loader")
         },

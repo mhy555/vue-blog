@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/mhy555/vue-blog#readme",
   "dependencies": {
+    "axios": "^0.15.3",
     "vue": "^2.2.4",
     "vue-loader": "^11.1.4",
     "vue-router": "^2.3.0",
@@ -36,6 +37,7 @@
     "babel-register": "^6.18.0",
     "bundle-loader": "^0.5.4",
     "css-loader": "^0.26.1",
+    "es6-promise": "^4.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.10.0",
     "html-webpack-plugin": "^2.24.1",
