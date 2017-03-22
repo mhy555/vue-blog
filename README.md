@@ -4,10 +4,10 @@ my first github pages blog using Vue
 
 website: https://mhy555.github.io/vue-blog/#/     
 
-##install
+## install
 
 npm install    
 
-##dev
+## dev
 
 npm run dev
