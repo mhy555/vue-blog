@@ -1,11 +1,16 @@
 var webpack = require("webpack"),
   path = require('path'),
+  pjson = require('./package.json'),
+
+  SRC_DIR = __dirname + '/' + 'src',
+  BUILD_DIR = __dirname + '/' + 'dist',
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   OpenBrowserPlugin = require('open-browser-webpack-plugin'),
   isDev = process.env.NODE_ENV === 'development',
   isProd = process.env.NODE_ENV === 'production',
   autoprefixer = require('autoprefixer'),
+  InlineManifestWebpackPlugin = require('inline-manifest-webpack-plugin'),
   webpackConfig;
 
 webpackConfig = {
@@ -35,21 +40,28 @@ webpackConfig = {
         "process.env": {
           NODE_ENV: JSON.stringify(process.env.NODE_ENV)
         }
+      }),
+      new InlineManifestWebpackPlugin({
+        name: 'webpackManifest'
       })
     ],
-    entry: ["./src/index.js"],
+    entry: ["./src/main.js"],
     output: {
       path: './dist',
       filename: "bundle.js"
     },
     module: {
-        loaders: [{
-            test: /\.css$/,
-            loader: "style!css!postcss"
+      loaders: [
+        {
+          test : /.*\.preprocess\.htm/, loader: __dirname + '/common-module/htmlEnv/wfhtml-loader.js'
         },
         {
           test: /\.vue$/,
           loader: 'vue'
+        },
+        {
+          test: /\.css$/,
+          loader: "style!css!postcss"
         },
         {
           test: /\.less$/,
@@ -84,6 +96,11 @@ webpackConfig = {
           }
         }]
     },
+    resolve: {
+      alias: {
+        'vue': 'vue/dist/vue.js'
+      }
+    },
     devServer: {
       port: 8080,
       host: '127.0.0.1',
@@ -92,11 +109,32 @@ webpackConfig = {
 }
 if (!isDev) {
   webpackConfig.output = {
-    path: './dist',
     publicPath: './',
-    filename: "[name].js"
+    path: BUILD_DIR,
+    filename: path.posix.join('./' + pjson.version, '/[name].js'),
+    chunkFilename: path.posix.join('./' + pjson.version, '/[id].[name].js')
   }
   webpackConfig.plugins = webpackConfig.plugins.concat([
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'vendor',
+    //   minChunks: function (module, count) {
+    //     // any required modules inside node_modules are extracted to vendor
+    //     return (
+    //       module.resource &&
+    //       /\.js$/.test(module.resource) &&
+    //       (
+    //         module.resource.indexOf(
+    //           path.join(__dirname, './node_modules')) === 0 ||
+    //         module.resource.indexOf(
+    //           path.join(__dirname, './src/vendor')) === 0
+    //       )
+    //     )
+    //   }
+    // }),
+    // new webpack.optimize.CommonsChunkPlugin({
+    //   name: 'manifest',
+    //   chunks: ['vendor']
+    // }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         dead_code: true,
@@ -107,6 +145,7 @@ if (!isDev) {
       }
     })
   ])
+} else {
 }
 
 module.exports = webpackConfig
