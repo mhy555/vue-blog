@@ -27,6 +27,7 @@
 </script>
 
 <style lang="less">
+@import '~prismjs/themes/prism.css';
 .app-root {
   .header {
     font-size: 40px;
