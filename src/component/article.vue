@@ -34,6 +34,7 @@ export default {
 
 <style lang="less">
 .article {
+  padding: 0 30px 0 40px;
   pre {
     background: #f7f7f7 !important;
     padding: 16px;
