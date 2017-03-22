@@ -1,11 +1,9 @@
 <template lang="html">
   <div class="list-view">
     <div class="item-container" v-for="item in items">
-      <div class="item-title">
-        <router-link :to="'/article/' + item.sha" :key="item.sha" class="item-title">
-          {{item.name | removeSuffix}}
-        </router-link>
-      </div>
+      <router-link :to="'/article/' + item.sha" :key="item.sha" class="item-title">
+        {{item.name | removeSuffix}}
+      </router-link>
     </div>
   </div>
 </template>
@@ -37,6 +35,11 @@ export default {
 
 <style lang="less">
 .list-view {
-
+  .item-container {
+    padding: 30px 0 30px 200px;
+    font-size: 18px;
+    font-family: monospace;
+    color: #282828;
+  }
 }
 </style>
